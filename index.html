@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f5ff">
+  <meta name="description" content="Learn languages and speak confidently with LingoNova.">
+  <title>LingoNova – Learn Languages. Speak Confidently.</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <section class="onboarding" id="onboarding" aria-labelledby="welcome-title">
+    <div class="onboard-orb orb-one"></div><div class="onboard-orb orb-two"></div>
+    <div class="onboard-card">
+      <a class="brand brand-large" href="#" aria-label="LingoNova home"><span class="brand-mark">✦</span><span>Lingo<span>Nova</span></span></a>
+      <p class="eyebrow">YOUR LANGUAGE JOURNEY STARTS HERE</p>
+      <h1 id="welcome-title">Learn Languages.<br><span>Speak Confidently.</span></h1>
+      <p class="welcome-description">Learn new languages through vocabulary, conversations, pronunciation, grammar, and interactive practice.</p>
+      <div class="onboard-step">
+        <label for="native-language">1. What is your preferred or native language?</label>
+        <select id="native-language"></select>
+        <small>We’ll use this language for meanings and explanations.</small>
+      </div>
+      <div class="onboard-step">
+        <label for="target-language">2. Which language do you want to learn?</label>
+        <select id="target-language"></select>
+        <small>You can change either choice later in Settings.</small>
+      </div>
+      <button class="button button-primary button-wide" id="begin-learning">Start my learning journey <span>→</span></button>
+      <div class="onboard-foot"><span>🎧 Listen</span><span>✦ Learn</span><span>🎙 Speak</span></div>
+    </div>
+    <div class="floating-word float-word-one">こんにちは</div>
+    <div class="floating-word float-word-two">Bonjour!</div>
+    <div class="floating-word float-word-three">வணக்கம்</div>
+  </section>
+
+  <div class="app-shell hidden" id="app-shell" data-theme="fr">
+    <header class="topbar">
+      <a class="brand" href="#" data-view="dashboard" aria-label="LingoNova dashboard"><span class="brand-mark">✦</span><span>Lingo<span>Nova</span></span></a>
+      <div class="topbar-right">
+        <span class="header-language" id="header-language"></span>
+        <span class="topbar-streak">🔥 <b id="header-streak">0</b></span>
+        <button class="avatar-button" data-view="settings" aria-label="Open settings">LN</button>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <aside class="sidebar" aria-label="Main navigation">
+        <p class="nav-label">YOUR SPACE</p>
+        <nav class="side-nav">
+          <button class="nav-link active" data-view="dashboard"><span>⌂</span> Dashboard</button>
+          <button class="nav-link" data-view="learn"><span>▤</span> Learn</button>
+          <button class="nav-link" data-view="vocabulary"><span>✦</span> Vocabulary</button>
+          <button class="nav-link" data-view="speaking" aria-label="Speaking and listening practice"><span>◖</span> Speak</button>
+          <button class="nav-link" data-view="conversation"><span>☏</span> Conversation</button>
+          <button class="nav-link" data-view="quiz"><span>✓</span> Quiz</button>
+          <button class="nav-link" data-view="settings"><span>⚙</span> Settings</button>
+        </nav>
+        <div class="sidebar-language" id="sidebar-language"></div>
+        <p class="sidebar-footer">Little steps. Bright futures. ✨</p>
+      </aside>
+
+      <main class="main-content">
+        <section class="view active" id="dashboard-view">
+          <div class="dashboard-hero">
+            <div class="hero-copy">
+              <p class="eyebrow">YOUR PERSONAL LANGUAGE STUDIO</p>
+              <h1 id="hello-heading">Hello, language learner!</h1>
+              <p id="hero-subtitle">Your next new word is just a little practice away.</p>
+              <button class="button button-white" data-view="learn">Continue learning <span>→</span></button>
+            </div>
+            <div class="hero-art" aria-hidden="true"><div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div><span class="hero-character">文</span><span class="hero-spark">✦</span><span class="hero-speech">Hola!</span></div>
+          </div>
+
+          <div class="dashboard-topline">
+            <div><p class="eyebrow">YOUR DASHBOARD</p><h2>Your learning at a glance</h2></div>
+            <button class="text-button" data-view="settings">⚙ Change languages</button>
+          </div>
+          <div class="stats-grid" id="stats-grid"></div>
+
+          <div class="home-columns">
+            <section class="panel daily-panel">
+              <div class="panel-heading"><div><p class="eyebrow">A TINY DAILY CHALLENGE</p><h2>Today’s practice</h2></div><span class="sun-icon">☀</span></div>
+              <div id="daily-practice"></div>
+              <button class="button button-soft" data-view="vocabulary">Practise this word <span>→</span></button>
+            </section>
+            <section class="panel recent-panel">
+              <div class="panel-heading"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Recent lessons</h2></div><button class="text-button" data-view="learn">See all</button></div>
+              <div id="recent-lessons"></div>
+            </section>
+          </div>
+
+          <section class="panel badges-panel">
+            <div class="panel-heading"><div><p class="eyebrow">YOUR LITTLE WINS</p><h2>Badges & achievements</h2></div><span class="points-pill">✦ <b id="badge-points">0</b> points</span></div>
+            <div class="badge-list" id="badge-list"></div>
+          </section>
+        </section>
+
+        <section class="view" id="learn-view">
+          <div class="page-heading"><p class="eyebrow">SMALL STEPS, REAL PROGRESS</p><h1>Your learning <span>path.</span></h1><p>Choose a level and explore useful topics. Lesson explanations use your preferred language.</p></div>
+          <div class="learning-toolbar"><div class="language-chip" id="learn-language-chip"></div><div class="level-switch" id="level-switch" role="group" aria-label="Choose your learning level"></div></div>
+          <div class="grammar-strip" id="grammar-strip"></div>
+          <div class="lesson-grid" id="lesson-grid"></div>
+        </section>
+
+        <section class="view" id="vocabulary-view">
+          <div class="page-heading"><p class="eyebrow">WORDS YOU CAN USE</p><h1>Grow your <span>word garden.</span></h1><p>Search in your learning or preferred language, then listen, read, and save new words.</p></div>
+          <div class="learning-toolbar"><div class="language-chip" id="vocab-language-chip"></div><label class="search-box"><span>⌕</span><input id="vocabulary-search" type="search" placeholder="Search words or meanings…" aria-label="Search vocabulary"></label></div>
+          <div class="vocabulary-grid" id="vocabulary-grid"></div>
+          <p class="empty-state hidden" id="vocabulary-empty">No matching words yet. Try another search.</p>
+        </section>
+
+        <section class="view" id="speaking-view">
+          <div class="page-heading"><p class="eyebrow">LISTEN CLOSELY, THEN TRY</p><h1>Practise your <span>pronunciation.</span></h1><p>Hear a phrase, say it into your microphone, and get friendly feedback.</p></div>
+          <div class="learning-toolbar"><div class="language-chip" id="speaking-language-chip"></div><span class="soft-note">Use a quiet place and speak clearly.</span></div>
+          <div class="speaking-card">
+            <div class="speaking-art" aria-hidden="true">♫</div><p class="eyebrow">SAY THIS PHRASE</p>
+            <h2 id="speaking-phrase"></h2><p class="translation" id="speaking-translation"></p>
+            <div class="button-row"><button class="button button-outline" id="listen-button">▶ Listen</button><button class="button button-primary" id="speak-button">🎙 Speak</button><button class="button button-soft" id="next-phrase">Next phrase ↗</button></div>
+            <p class="speech-status" id="speech-status" role="status" aria-live="polite">Press Listen to hear the pronunciation.</p>
+            <div class="speech-result hidden" id="speech-result" role="status" aria-live="polite"></div>
+            <p class="browser-note" id="browser-note"></p>
+          </div>
+        </section>
+
+        <section class="view" id="conversation-view">
+          <div class="page-heading"><p class="eyebrow">PRACTISE REAL-LIFE MOMENTS</p><h1>Let’s have a <span>conversation.</span></h1><p>Read the situation, then choose what you would say in your learning language.</p></div>
+          <div class="conversation-card" id="conversation-card"></div>
+        </section>
+
+        <section class="view" id="quiz-view">
+          <div class="page-heading"><p class="eyebrow">A FRIENDLY KNOWLEDGE CHECK</p><h1>Ready for a <span>quick quiz?</span></h1><p>Five questions, no pressure. Your answers help you remember new words.</p></div>
+          <div class="learning-toolbar"><div class="language-chip" id="quiz-language-chip"></div><span class="soft-note">Meanings are shown in your preferred language.</span></div>
+          <div class="quiz-card" id="quiz-card"></div>
+        </section>
+
+        <section class="view" id="settings-view">
+          <div class="page-heading"><p class="eyebrow">MAKE LINGONOVA YOURS</p><h1>Your <span>settings.</span></h1><p>Choose the language you think in, the language you want to learn, and your current level.</p></div>
+          <div class="settings-card">
+            <div class="settings-intro"><span class="settings-icon">⚙</span><div><h2>Language preferences</h2><p>Learning meanings and simple explanations will appear in your preferred language.</p></div></div>
+            <label for="settings-native">Preferred or native language</label><select id="settings-native"></select>
+            <label for="settings-target">Language you are learning</label><select id="settings-target"></select>
+            <label for="settings-level">Learning level</label><select id="settings-level"><option value="beginner">🌱 Beginner</option><option value="intermediate">🌿 Intermediate</option><option value="advanced">🌳 Advanced</option></select>
+            <button class="button button-primary" id="save-settings">Save my settings</button>
+          </div>
+          <div class="settings-tip"><span>💡</span><p><strong>Tip:</strong> You can switch languages any time. Your saved progress stays with each learning language.</p></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="lesson-modal" role="dialog" aria-modal="true" aria-labelledby="lesson-modal-title">
+    <article class="lesson-modal-card">
+      <button class="modal-close" id="close-lesson" aria-label="Close lesson">×</button>
+      <p class="eyebrow" id="lesson-modal-kicker">QUICK LESSON</p>
+      <h2 id="lesson-modal-title"></h2>
+      <p class="modal-explanation" id="lesson-modal-description"></p>
+      <div id="lesson-phrases"></div>
+      <button class="button button-primary button-wide" id="complete-lesson">Mark lesson complete <span>✦ +10 points</span></button>
+    </article>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
